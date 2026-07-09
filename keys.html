@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>자리연습 | 가사타자방</title>
+  <link rel="stylesheet" href="keys.css" />
+</head>
+<body>
+<div id="keys-app">
+
+  <header id="kh">
+    <a href="/ko" id="kh-back">← 홈으로</a>
+    <h1 id="kh-title">⌨️ 자리연습</h1>
+    <div id="mode-toggle">
+      <button class="mtbtn active" id="btn-ko">한국어</button>
+      <button class="mtbtn" id="btn-en">ENG</button>
+    </div>
+  </header>
+
+  <div id="level-tabs"></div>
+
+  <div id="practice-zone">
+    <div id="key-queue">
+      <div class="kq-item current" id="kq0">
+        <span id="kq0-char"></span>
+      </div>
+      <div class="kq-item next" id="kq1"></div>
+      <div class="kq-item next" id="kq2"></div>
+      <div class="kq-item next" id="kq3"></div>
+    </div>
+
+    <div id="finger-hint"></div>
+
+    <div id="stats-row">
+      <div class="kstat">
+        <span class="kstat-v" id="st-acc">100%</span>
+        <span class="kstat-l">정확도</span>
+      </div>
+      <div class="kstat">
+        <span class="kstat-v" id="st-streak">0</span>
+        <span class="kstat-l">연속</span>
+      </div>
+      <div class="kstat">
+        <span class="kstat-v" id="st-done">0</span>
+        <span class="kstat-l">완료</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="keyboard"></div>
+
+  <div id="finger-legend"></div>
+
+</div>
+<script src="keys.js"></script>
+</body>
+</html>

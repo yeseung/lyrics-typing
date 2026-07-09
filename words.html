@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>낱말연습 | 가사타자방</title>
+    <link rel="stylesheet" href="words.css" />
+</head>
+<body>
+<div id="app">
+    <header id="w-header">
+        <a href="/" id="back-btn">← 홈으로</a>
+        <h1 id="w-title">🔤 낱말연습</h1>
+        <nav id="level-tabs">
+            <button class="lvl-btn active" data-level="all">전체</button>
+            <button class="lvl-btn" data-level="easy">쉬움</button>
+            <button class="lvl-btn" data-level="mid">보통</button>
+            <button class="lvl-btn" data-level="hard">어려움</button>
+        </nav>
+    </header>
+
+    <main id="w-main">
+        <div id="word-card">
+            <div id="word-category"></div>
+            <div id="word-display"></div>
+            <div id="word-hint"></div>
+        </div>
+
+        <div id="input-wrap">
+            <input id="w-input" type="text"
+                   placeholder="낱말을 입력하세요"
+                   autocomplete="off" autocorrect="off"
+                   autocapitalize="off" spellcheck="false" />
+            <div id="progress-bar"><div id="progress-fill"></div></div>
+        </div>
+
+        <div id="hands-wrap">
+            <div class="hand-cont" id="hand-l-cont">
+                <div class="hand-wrap">
+                    <div class="finger" id="fl0" style="left:5px; top:20px; height:51px; background:#a855f7"></div>
+                    <div class="finger" id="fl1" style="left:21px;top:9px;  height:62px; background:#f97316"></div>
+                    <div class="finger" id="fl2" style="left:36px;top:4px;  height:67px; background:#22c55e"></div>
+                    <div class="finger" id="fl3" style="left:52px;top:9px;  height:62px; background:#3b82f6"></div>
+                    <div class="palm" style="left:2px"></div>
+                    <div class="thumb" style="left:73px; transform:rotate(22deg)"></div>
+                </div>
+            </div>
+            <div class="hand-cont" id="hand-r-cont">
+                <div class="hand-wrap">
+                    <div class="finger" id="fr4" style="left:18px;top:9px;  height:62px; background:#eab308"></div>
+                    <div class="finger" id="fr5" style="left:33px;top:4px;  height:67px; background:#22c55e"></div>
+                    <div class="finger" id="fr6" style="left:48px;top:9px;  height:62px; background:#f97316"></div>
+                    <div class="finger" id="fr7" style="left:63px;top:20px; height:51px; background:#a855f7"></div>
+                    <div class="palm" style="left:15px"></div>
+                    <div class="thumb" style="left:3px; transform:rotate(-22deg)"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="next-words">
+            <span class="next-label">다음</span>
+            <div id="next-list"></div>
+        </div>
+    </main>
+
+    <footer id="w-stats">
+        <div class="stat-item">
+            <span class="stat-label">경과 시간</span>
+            <span class="stat-val" id="stat-time">00:00</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-label">완료</span>
+            <span class="stat-val" id="stat-done">0</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-label">연속 정답</span>
+            <span class="stat-val" id="stat-streak">0🔥</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-label">정확도</span>
+            <span class="stat-val" id="stat-acc">100%</span>
+        </div>
+    </footer>
+</div>
+<script src="words-data.js"></script>
+<script src="words.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>단문연습 | 가사타자방</title>
+  <link rel="stylesheet" href="sentences.css" />
+</head>
+<body>
+<div id="app">
+  <header id="s-header">
+    <a href="/" id="back-btn">
+      <svg width="9" height="15" viewBox="0 0 9 15" fill="none" aria-hidden="true">
+        <path d="M7.5 1L1.5 7.5L7.5 14" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>홈으로</span>
+    </a>
+    <span class="nav-sep"></span>
+    <h1 id="s-title">단문연습</h1>
+
+    <nav id="cat-tabs">
+      <div id="cat-thumb"></div>
+      <button class="cat-btn active" data-cat="all">전체</button>
+      <button class="cat-btn" data-cat="속담">속담</button>
+      <button class="cat-btn" data-cat="명언">명언</button>
+      <button class="cat-btn" data-cat="문학">문학</button>
+    </nav>
+  </header>
+
+  <main id="s-main">
+    <section id="stage">
+      <div id="current-card">
+        <div id="source-badge"></div>
+        <div id="current-text"></div>
+      </div>
+
+      <div id="input-wrap">
+        <input id="s-input" type="text"
+               placeholder="위 문장을 따라 입력하세요"
+               autocomplete="off" autocorrect="off"
+               autocapitalize="off" spellcheck="false" />
+        <div id="progress-bar"><div id="progress-fill"></div></div>
+        <p id="input-hint">
+          <kbd>Esc</kbd> 입력 초기화 · 정확히 입력하면 자동으로 다음 문장으로 넘어갑니다
+        </p>
+      </div>
+
+      <div id="s-stats">
+        <div class="stat-item">
+          <span class="stat-val" id="stat-time">00:00</span>
+          <span class="stat-label">경과 시간</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val" id="stat-speed">0</span>
+          <span class="stat-label">타수 (타/분)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val" id="stat-acc">100%</span>
+          <span class="stat-label">정확도</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-val" id="stat-done">0</span>
+          <span class="stat-label">완료 문장</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="s-queue">
+      <p id="queue-label">다음 문장</p>
+      <div id="queue-list"></div>
+    </section>
+  </main>
+</div>
+<script src="sentences-data.js"></script>
+<script src="sentences.js"></script>
+</body>
+</html>

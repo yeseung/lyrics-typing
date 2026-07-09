@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="page_title">Global Lyrics Typing Battle - 전 세계 노래 가사 타자 연습 배틀</title>
+    <meta name="description" content="좋아하는 국내외 인기 노래 가사로 즐겁게 타자 연습을 하고 실시간 랭킹(WPM) 측정이 가능한 온라인 가사 타자 연습 사이트입니다. Practice your typing skills with your favorite song lyrics and check your WPM ranking worldwide!" />
+    <meta name="keywords" content="타자연습, 노래가사타자, 타자게임, 한컴타자연습, typing practice, lyrics typing, typing game, WPM" />
+    <link rel="canonical" href="https://lyricstyping.byungduks.workers.dev/" />
+
+    <meta name="theme-color" content="#f0b429" />
+    <!-- hreflang: tells Google which URL serves which language, so it indexes
+         /ko, /ja, /en as distinct language versions instead of guessing or
+         flagging them as duplicate content. Every language variant must list
+         ALL alternates (including itself) plus one x-default fallback. -->
+    <link rel="alternate" hreflang="ko" href="https://lyricstyping.byungduks.workers.dev/ko" />
+    <link rel="alternate" hreflang="ja" href="https://lyricstyping.byungduks.workers.dev/ja" />
+    <link rel="alternate" hreflang="en" href="https://lyricstyping.byungduks.workers.dev/en" />
+    <link rel="alternate" hreflang="x-default" href="https://lyricstyping.byungduks.workers.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Global Lyrics Typing Battle - 전 세계 노래 가사 타자 연습 배틀" />
+    <meta property="og:description" content="좋아하는 국내외 인기 노래 가사로 즐겁게 타자 연습을 하고 실시간 랭킹(WPM) 측정이 가능한 온라인 가사 타자 연습 사이트입니다. Practice your typing skills with your favorite song lyrics and check your WPM ranking worldwide!" />
+    <meta property="og:url" content="https://lyricstyping.byungduks.workers.dev/" />
+    <meta property="og:image" content="https://lyricstyping.byungduks.workers.dev/og-image.svg" />
+    <meta property="og:site_name" content="Global Lyrics Typing Battle" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Global Lyrics Typing Battle - 전 세계 노래 가사 타자 연습 배틀" />
+    <meta name="twitter:description" content="좋아하는 국내외 인기 노래 가사로 즐겁게 타자 연습을 하고 실시간 랭킹(WPM) 측정이 가능한 온라인 가사 타자 연습 사이트입니다. Practice your typing skills with your favorite song lyrics and check your WPM ranking worldwide!" />
+    <meta name="twitter:image" content="https://lyricstyping.byungduks.workers.dev/og-image.svg" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+        (function() {
+            var s = document.createElement('script');
+            s.src = 'https://www.youtube.com/iframe_api';
+            document.head.appendChild(s);
+        })();
+    </script>
+    <script>window.USER_COUNTRY = "KR";</script></head>
+<body>
+<header>
+    <h1 id="home-link">
+        <svg id="brand-icon" width="34" height="34" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+                <linearGradient id="brand-gradient" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#f0b429" />
+                    <stop offset="1" stop-color="#e6a317" />
+                </linearGradient>
+            </defs>
+            <rect width="36" height="36" rx="10" fill="url(#brand-gradient)" />
+            <rect x="16" y="8" width="3.2" height="15" rx="1.6" fill="#2c2e31" />
+            <circle cx="13.6" cy="23.5" r="4.4" fill="#2c2e31" />
+            <path d="M19.2 8.5 L27 6.2 V10.6 L19.2 12.8 Z" fill="#2c2e31" />
+        </svg>
+        <span id="brand-text" data-i18n="site_title">Global Lyrics Typing Battle</span>
+    </h1>
+
+    <div id="header-right">
+        <a href="words.html" id="words-nav-btn">🔤 낱말연습</a>
+        <a href="sentences.html" id="sentences-nav-btn">📝 단문연습</a>
+        <a href="keys.html" id="keys-nav-btn">⌨️ 자리연습</a>
+        <a href="game.html" id="game-nav-btn">☔ 게임하기</a>
+        <div id="auth-area">
+            <div id="auth-logged-out">
+                <button id="login-open-btn" type="button" data-i18n="login_signup_btn">Log in / Sign up</button>
+            </div>
+            <div id="auth-logged-in" class="hidden">
+                <span id="auth-display-name"></span>
+                <button id="mypage-open-btn" type="button" data-i18n="mypage_btn">My page</button>
+                <button id="admin-open-btn" type="button" class="hidden">Admin</button>
+                <button id="logout-btn" type="button" data-i18n="logout_btn">Log out</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="search-view" class="view active">
+        <section id="hero-intro">
+            <h2 data-i18n="intro_heading">Practice Typing with Your Favorite Song Lyrics</h2>
+            <p data-i18n="intro_text">
+                Race against players worldwide and upgrade your daily typing practice! Test your typing
+                speed and accuracy by typing along to real song lyrics in any language. This free online
+                typing test lets you skip boring drills, join a real-time global multiplayer arena, and
+                boost your WPM. Find your favorite song and start your ultimate typing practice now!
+            </p>
+        </section>
+
+        <form id="search-form">
+            <input id="search-input" type="text" data-i18n-placeholder="search_placeholder" placeholder="Search by song title or artist" autocomplete="off" />
+            <button type="submit" data-i18n="search_btn">Search</button>
+        </form>
+        <ul id="search-results"></ul>
+        <p id="search-status"></p>
+
+
+        <div id="home-grid">
+            <section id="popular-section" class="home-box">
+                <h3 data-i18n="popular_heading">🔥 Popular practice songs</h3>
+                <ol id="popular-list"></ol>
+            </section>
+
+            <section id="recent-comments-section" class="home-box">
+                <h3 data-i18n="recent_comments_heading">💬 Recent ranking comments</h3>
+                <ul id="recent-comments-list"></ul>
+            </section>
+
+            <section id="leaderboard-section" class="home-box">
+                <h3 data-i18n="leaderboard_heading">🏆 Global leaderboard</h3>
+                <ol id="leaderboard-list"></ol>
+            </section>
+
+            <section id="live-search-section" class="home-box">
+                <h3 data-i18n="live_search_heading">🔎 Live searches</h3>
+                <ol id="live-search-list"></ol>
+            </section>
+        </div>
+    </section>
+
+    <section id="typing-view" class="view">
+        <button id="back-btn" type="button" data-i18n="back_btn">← Back to search</button>
+
+        <div id="typing-layout">
+            <aside id="typing-sidebar">
+                <div class="stats-panel">
+                    <div class="stats">
+                        <div><span id="stat-total-score">00:00.00</span><label>Time</label></div>
+                        <div><span id="stat-accuracy">100 %</span><label>Accuracy</label></div>
+                        <div><span id="stat-progress">0 %</span><label>progress</label></div>
+                    </div>
+                    <div class="total-score-box">
+                        <span class="wpm-unit-label">WPM</span>
+                        <span id="stat-wpm">0.00</span>
+                        <label>Words Per Minute</label>
+                    </div>
+                </div>
+
+
+            </aside>
+
+            <div id="typing-content">
+                <div id="song-info">
+                    <img id="album-art" class="hidden" alt="" />
+                    <div id="song-info-text">
+                        <div id="song-title-row">
+                            <h2 id="song-title"></h2>
+                            <button id="favorite-btn" type="button" class="hidden" aria-label="favorite">♡</button>
+                        </div>
+                        <p id="song-artist"></p>
+                    </div>
+                </div>
+
+                <div id="type-area">
+                    <div id="combo-display" class="hidden"></div>
+                    <div id="lyrics-display"></div>
+                    <textarea id="typing-input" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
+                </div>
+
+                <button id="restart-btn" type="button" data-i18n="restart_btn">↻ Restart (tab)</button>
+
+                <section id="best-records">
+                    <h3 data-i18n="best_records_heading">Best records for this song</h3>
+                    <ol id="records-list"></ol>
+                </section>
+            </div>
+
+            <aside id="song-ranking-panel">
+                <!-- YouTube Music Player -->
+                <div id="yt-player-section">
+                    <div id="yt-player-container">
+                        <div id="yt-player-placeholder">
+                            <span id="yt-player-icon">♪</span>
+                            <p id="yt-player-placeholder-text">뮤직 플레이어</p>
+                        </div>
+                        <div id="yt-player-frame" class="hidden"></div>
+                    </div>
+                    <!-- Admin: YouTube ID 설정 -->
+                    <div id="yt-admin-form" class="hidden">
+                        <input id="yt-admin-input" type="text" placeholder="YouTube URL 또는 Video ID 붙여넣기" />
+                        <button id="yt-admin-save">저장</button>
+                        <button id="yt-admin-clear">제거</button>
+                    </div>
+                </div>
+
+                <div id="song-ranking-inner">
+                    <h3 class="ranking-panel-title">🏆 <span data-i18n="ranking_panel_heading">Song Ranking</span></h3>
+                    <ol id="song-ranking-list"></ol>
+                    <p id="song-ranking-empty" class="ranking-empty"></p>
+                </div>
+            </aside>
+        </div>
+    </section>
+</main>
+
+<div id="auth-modal" class="hidden">
+    <div id="auth-modal-content">
+        <button id="auth-modal-close-btn" type="button" class="modal-close-x">✕</button>
+
+        <div class="auth-tabs">
+            <button type="button" class="auth-tab active" data-tab="login" data-i18n="login_tab">Log in</button>
+            <button type="button" class="auth-tab" data-tab="register" data-i18n="register_tab">Sign up</button>
+        </div>
+
+        <form id="login-form" class="auth-form">
+            <input type="text" id="login-username" data-i18n-placeholder="username_placeholder" placeholder="Username" autocomplete="username" required />
+            <input type="password" id="login-password" data-i18n-placeholder="password_placeholder" placeholder="Password" autocomplete="current-password" required />
+            <button type="submit" data-i18n="login_tab">Log in</button>
+            <p class="auth-error" id="login-error"></p>
+        </form>
+
+        <form id="register-form" class="auth-form hidden">
+            <input type="text" id="register-name" data-i18n-placeholder="register_username_placeholder" placeholder="Username (used to log in)" autocomplete="username" maxlength="12" required />
+            <input type="password" id="register-password" data-i18n-placeholder="register_password_placeholder" placeholder="Password (6+ characters)" autocomplete="new-password" required />
+            <input type="password" id="register-password-confirm" data-i18n-placeholder="confirm_password_placeholder" placeholder="Confirm password" autocomplete="new-password" required />
+            <div class="country-picker" id="country-picker">
+                <img id="country-flag-preview" class="hidden" alt="" />
+                <input type="text" id="register-country-input" data-i18n-placeholder="country_placeholder" placeholder="Select your country" autocomplete="off" />
+                <input type="hidden" id="register-country" required />
+                <ul id="register-country-list" class="country-dropdown hidden"></ul>
+            </div>
+            <button type="submit" data-i18n="register_tab">Sign up</button>
+            <p class="auth-error" id="register-error"></p>
+        </form>
+    </div>
+</div>
+
+<div id="admin-modal" class="hidden">
+    <div id="admin-modal-content">
+        <button id="admin-modal-close-btn" type="button" class="modal-close-x">✕</button>
+        <h2>🛠 Admin</h2>
+        <div class="modal-stats">
+            <div><span id="admin-stat-users">-</span><label>users</label></div>
+            <div><span id="admin-stat-songs">-</span><label>songs cached</label></div>
+            <div><span id="admin-stat-records">-</span><label>records</label></div>
+            <div><span id="admin-stat-comments">-</span><label>comments</label></div>
+        </div>
+
+        <div id="admin-storage">
+            <div><label>Lyrics storage</label><span id="admin-stat-lyrics-bytes">-</span></div>
+            <div><label>Ranking comments storage</label><span id="admin-stat-comments-bytes">-</span></div>
+        </div>
+
+        <h3>Registered users</h3>
+        <table id="admin-users-table">
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Country</th>
+                <th>Joined</th>
+                <th>Attempts</th>
+                <th>Comments</th>
+                <th>Last active</th>
+            </tr>
+            </thead>
+            <tbody id="admin-users-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<div id="mypage-modal" class="hidden">
+    <div id="mypage-modal-content">
+        <button id="mypage-modal-close-btn" type="button" class="modal-close-x">✕</button>
+        <h2 data-i18n="mypage_heading">My page</h2>
+
+        <div class="modal-stats" id="mypage-stats">
+            <div><span id="mypage-stat-songs">-</span><label data-i18n="mypage_songs_label">Songs</label></div>
+            <div><span id="mypage-stat-attempts">-</span><label data-i18n="mypage_attempts_label">Attempts</label></div>
+            <div><span id="mypage-stat-best">-</span><label data-i18n="mypage_best_label">Best score</label></div>
+        </div>
+
+        <div class="mypage-tabs">
+            <button class="mypage-tab active" data-tab="history" data-i18n="mypage_history_tab">History</button>
+            <button class="mypage-tab" data-tab="favorites" data-i18n="mypage_favorites_tab">Favorites</button>
+        </div>
+
+        <div id="mypage-history-panel">
+            <ul id="mypage-history-list"></ul>
+        </div>
+        <div id="mypage-favorites-panel" class="hidden">
+            <ul id="mypage-favorites-list"></ul>
+        </div>
+    </div>
+</div>
+
+<div id="result-modal" class="hidden">
+    <div id="result-modal-content">
+        <h2 data-i18n="result_heading">🎉 Complete!</h2>
+
+        <div class="modal-stats">
+            <div><span id="modal-wpm">0</span><label>wpm</label></div>
+            <div><span id="modal-accuracy">0</span><label data-i18n="accuracy_label">accuracy %</label></div>
+            <div><span id="modal-rank">-</span><label data-i18n="rank_label">My rank</label></div>
+        </div>
+
+        <div class="modal-stats modal-stats-secondary">
+            <div class="modal-total-score-box"><span id="modal-total-score">0</span><label data-i18n="total_score_label">Total Score</label></div>
+            <div><span id="modal-max-combo">0</span><label data-i18n="max_combo_label">Max combo</label></div>
+        </div>
+
+        <div class="modal-compare">
+            <div><label data-i18n="avg_wpm_label">Average speed (other users)</label><span id="modal-avg-wpm">-</span></div>
+            <div><label data-i18n="avg_accuracy_label">Average accuracy (other users)</label><span id="modal-avg-accuracy">-</span></div>
+            <div><label data-i18n="attempts_label">Total attempts</label><span id="modal-attempts">-</span></div>
+        </div>
+
+        <div id="comment-section" class="hidden">
+            <p id="comment-prompt" data-i18n="comment_prompt">🎉 You're in the top 10! Leave a comment:</p>
+            <textarea id="comment-input" maxlength="20" data-i18n-placeholder="comment_placeholder" placeholder="Share your thoughts about this ranking"></textarea>
+            <div class="comment-actions">
+                <button id="comment-submit-btn" type="button" data-i18n="comment_submit_btn">Post comment</button>
+                <button id="comment-signup-btn" type="button" data-i18n="login_signup_btn">Log in / Sign up</button>
+            </div>
+            <p class="auth-error" id="comment-status"></p>
+        </div>
+
+
+        <div class="modal-actions">
+            <button id="modal-restart-btn" type="button" data-i18n="restart_btn_short">↻ Restart</button>
+            <button id="modal-close-btn" type="button" data-i18n="close_btn">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div id="privacy-modal" class="legal-modal hidden" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
+    <div class="legal-modal-content">
+        <button class="legal-modal-close modal-close-x" data-close="privacy-modal" aria-label="Close">✕</button>
+        <h2 id="privacy-modal-title">Privacy Policy</h2>
+        <p class="legal-updated">Last updated: July 1, 2025</p>
+        <p>Global Lyrics Typing Battle ("Service") is committed to protecting your privacy. This policy explains what information we collect and how we use it.</p>
+        <h3>1. Information We Collect</h3>
+        <ul>
+            <li><strong>Account data</strong>: Username, one-way hashed password, and selected country upon registration.</li>
+            <li><strong>Play records</strong>: WPM, accuracy, score, and the songs you practiced.</li>
+            <li><strong>Session tokens</strong>: Stored in a browser cookie to keep you logged in.</li>
+            <li><strong>Search logs</strong>: Song title and artist name of songs searched in the Service.</li>
+        </ul>
+        <h3>2. How We Use It</h3>
+        <ul>
+            <li>Authenticating users and providing the Service.</li>
+            <li>Saving personal records and displaying leaderboards.</li>
+            <li>Analyzing popular content to improve the Service.</li>
+            <li>Preventing abuse and fraudulent activity.</li>
+        </ul>
+        <h3>3. Third-Party Services</h3>
+        <ul>
+            <li><strong>LRCLib</strong> (lrclib.net): Provides song lyric data. No personal data is transmitted.</li>
+            <li><strong>iTunes Search API</strong> (Apple Inc.): Provides album artwork. Only song title and artist are sent as a search query.</li>
+            <li><strong>Cloudflare</strong>: Hosts our infrastructure and CDN. Cloudflare's own <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Privacy Policy</a> applies.</li>
+        </ul>
+        <h3>4. Data Retention</h3>
+        <p>Your data is retained while the Service is active. To request account deletion, contact us at <a href="mailto:qqaazz1741@gmail.com">qqaazz1741@gmail.com</a>. We will process your request within 72 hours.</p>
+        <h3>5. Cookies</h3>
+        <p>We use cookies solely to maintain your login session. Disabling cookies in your browser will prevent you from using account-related features.</p>
+        <h3>6. Children's Privacy</h3>
+        <p>We do not knowingly collect personal data from children under 14. If you believe a child has submitted data, please contact us immediately.</p>
+        <h3>7. Changes to This Policy</h3>
+        <p>We may update this policy at any time. Changes will be posted on this page with a revised date.</p>
+        <h3>8. Contact</h3>
+        <p>For privacy-related questions: <a href="mailto:qqaazz1741@gmail.com">qqaazz1741@gmail.com</a></p>
+    </div>
+</div>
+
+<!-- Terms of Service Modal -->
+<div id="terms-modal" class="legal-modal hidden" role="dialog" aria-modal="true" aria-labelledby="terms-modal-title">
+    <div class="legal-modal-content">
+        <button class="legal-modal-close modal-close-x" data-close="terms-modal" aria-label="Close">✕</button>
+        <h2 id="terms-modal-title">Terms of Service</h2>
+        <p class="legal-updated">Last updated: July 1, 2025</p>
+        <p>By accessing or creating an account on Global Lyrics Typing Battle ("Service"), you agree to these Terms. Please read them carefully.</p>
+        <h3>1. About the Service</h3>
+        <p>Global Lyrics Typing Battle is a free online typing practice platform where users type along to real song lyrics and compete in real-time WPM rankings with players worldwide.</p>
+        <h3>2. Account Rules</h3>
+        <ul>
+            <li>You must be at least 14 years old to register.</li>
+            <li>You may not impersonate others or create accounts with false information.</li>
+            <li>You are responsible for keeping your password secure.</li>
+            <li>Usernames must be alphanumeric and up to 12 characters.</li>
+        </ul>
+        <h3>3. Prohibited Conduct</h3>
+        <ul>
+            <li>Using bots or automation to manipulate scores or rankings.</li>
+            <li>Sending excessive requests that overload our servers (DDoS).</li>
+            <li>Using offensive, hateful, or misleading usernames or comments.</li>
+            <li>Reverse-engineering the Service or unauthorized scraping.</li>
+        </ul>
+        <h3>4. Content &amp; Copyright</h3>
+        <p>Song lyrics are sourced from LRCLib, an open lyric database. Album artwork is provided by Apple's iTunes Search API. All rights to lyrics and artwork belong to their respective copyright holders. This Service displays them for educational and non-commercial typing practice purposes only.</p>
+        <h3>5. Service Changes</h3>
+        <p>We may modify or discontinue the Service at any time without prior notice. We are not liable for any loss resulting from service interruptions.</p>
+        <h3>6. Disclaimer</h3>
+        <p>The Service is provided "as is" without warranties of any kind. We are not liable for any direct or indirect damages arising from your use of the Service.</p>
+        <h3>7. Changes to These Terms</h3>
+        <p>Continued use of the Service after any changes constitutes your acceptance of the new Terms.</p>
+        <h3>8. Contact</h3>
+        <p>For questions about these Terms: <a href="mailto:qqaazz1741@gmail.com">qqaazz1741@gmail.com</a></p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-about">
+            <a href="/" class="footer-brand-link" aria-label="Home">
+                <svg width="28" height="28" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="footer-brand-gradient" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#f0b429" />
+                            <stop offset="1" stop-color="#e6a317" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="36" height="36" rx="10" fill="url(#footer-brand-gradient)" />
+                    <rect x="16" y="8" width="3.2" height="15" rx="1.6" fill="#2c2e31" />
+                    <circle cx="13.6" cy="23.5" r="4.4" fill="#2c2e31" />
+                    <path d="M19.2 8.5 L27 6.2 V10.6 L19.2 12.8 Z" fill="#2c2e31" />
+                </svg>
+                <span class="footer-brand-text">Global Lyrics Typing Battle</span>
+            </a>
+            <p data-i18n="footer_desc">A free typing practice site using real song lyrics. Test your WPM against players worldwide in 21 languages.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+            <h3 data-i18n="footer_legal">Legal</h3>
+            <ul>
+                <li><button class="footer-link-btn" id="privacy-open-btn" data-i18n="footer_privacy">Privacy Policy</button></li>
+                <li><button class="footer-link-btn" id="terms-open-btn" data-i18n="footer_terms">Terms of Service</button></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Global Lyrics Typing Battle. All rights reserved. · Lyrics: <a href="https://lrclib.net" target="_blank" rel="noopener">LRCLib</a> · Art: <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html" target="_blank" rel="noopener">iTunes Search API</a></p>
+    </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

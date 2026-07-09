@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>산성비 타자 게임 | 가사타자방</title>
+  <link rel="stylesheet" href="rain.css" />
+</head>
+<body>
+<div id="rain-app">
+
+  <!-- ── 시작 화면 ── -->
+  <div id="start-screen" class="screen active">
+    <div class="center-box">
+      <div class="game-logo">☔</div>
+      <h1 class="game-title">산성비</h1>
+      <p class="game-sub">떨어지는 단어를 빠르게 타이핑하세요!</p>
+      <div id="diff-row">
+        <button class="diff-btn active" data-start="1">🌱 초보</button>
+        <button class="diff-btn" data-start="5">⚡ 보통</button>
+        <button class="diff-btn" data-start="10">🔥 고수</button>
+      </div>
+      <div class="best-badge">🏆 최고 점수 <span id="best-score">0</span>점</div>
+      <button id="start-btn" class="gbtn primary">게임 시작</button>
+      <a href="/ko" class="gbtn ghost">← 타자연습으로</a>
+    </div>
+  </div>
+
+  <!-- ── 게임 화면 ── -->
+  <div id="game-screen" class="screen">
+    <div id="hud">
+      <div id="hud-lives"><span id="lives-el">❤️❤️❤️</span></div>
+      <div id="hud-mid">
+        <span id="level-el">LV.1</span>
+        <div id="lbar-wrap"><div id="lbar"></div></div>
+      </div>
+      <div id="hud-score"><span id="score-el">0</span>점</div>
+    </div>
+
+    <div id="word-area">
+      <div id="bottom-line"></div>
+      <div id="combo-el" class="hidden"></div>
+    </div>
+
+    <div id="input-wrap">
+      <input id="type-input" type="text"
+             placeholder="여기에 타이핑하세요..."
+             autocomplete="off" autocorrect="off"
+             autocapitalize="off" spellcheck="false" />
+    </div>
+  </div>
+
+  <!-- ── 게임 오버 화면 ── -->
+  <div id="gameover-screen" class="screen">
+    <div class="center-box">
+      <div class="game-logo">💀</div>
+      <h2 class="game-title" style="font-size:44px">게임 오버</h2>
+      <div class="result-grid">
+        <div class="ritem"><span class="rlabel">점수</span><span class="rval" id="fo-score">0</span></div>
+        <div class="ritem"><span class="rlabel">레벨</span><span class="rval" id="fo-level">1</span></div>
+        <div class="ritem"><span class="rlabel">최다 콤보</span><span class="rval" id="fo-combo">0</span></div>
+        <div class="ritem"><span class="rlabel">처리 단어</span><span class="rval" id="fo-words">0</span></div>
+      </div>
+      <div id="new-best" class="hidden">🎉 신기록!</div>
+      <button id="restart-btn" class="gbtn primary">다시 시작</button>
+      <a href="/ko" class="gbtn ghost">← 타자연습으로</a>
+    </div>
+  </div>
+
+</div>
+<script src="rain.js"></script>
+</body>
+</html>
